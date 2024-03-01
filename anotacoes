@@ -1,0 +1,77 @@
+ANOTACOES GERAIS:
+
+	**Sempre PULL**
+
+	--git config (--global) user.name "Tatá incrível"
+	--git config (--global) user.mail "tataomaisincrivel@yahoo.com"
+	--git push -u origin new-branch
+	--git pull
+	
+COMO IR PARA OUTRO COMMIT:
+	checkout.
+	git checkou 'idCommit'	
+STASH:
+	git stash save "mensagem"
+	git stash list
+	git stash pop
+	
+**Precisa deixar explicito para o git o que subir, de preferencia nao subir arquivos com informacoes confidenciais.**
+
+COMO?
+	git ignore: untracked(ngm ta monitorando)/tracked(monitorando)/ignored(aquivos a toa, PDF(??))
+	
+	tracked | untracked | ignored
+	
+	touch .gitignore && echo nomes dos arquiso >> .gitignore
+	Padrao de globbing
+	/ FORMA FACIL DE COLOCAR ARQUIVOS NAO NECESSARIOS:
+		*.log /
+		
+MERGE:
+	-Quanto menor a arvore, melhor o projeto.
+	-Sempre onde recebe.
+	+Conflitos: Normal, cabe o desenvolvedor saber o que é melhor. Apaga na mao e da commit instantaneamente comuniacando geral.
+	Uma possivel solucao, é Integracao conitnua
+		'EXTREME PROGRAMMING (XP) --FACEBOOK--'
+		https://www.alura.com.br/artigos/assets/git-hub/modelo-distribuido.png
+
+		trunk-based com commits pequenos direto na main e se der merda rollback.
+	--git merge :Junta tudo ai, 
+	
+		git checkout ATUALbranch
+		git merge new-branch
+		
+		pode dar conflito!:
+			
+			Cabe ao desenvolvendor escolher a melhor forma de prosseguir.
+	--PRs
+		Após fazer oq precisa, jogar pra develop e testar. Estando tudo certo pede PR pra main.
+		--Vai pro gitHub e pede integração com a branch em produçao. Os colaboradores têm permissão para liberar.
+		https://www.alura.com.br/artigos/assets/git-hub/pull-request.png
+
+	Apos o PR, deletar o branch remoto é bom:
+		git push origin --delete /nome-branch
+	  	git branch -d new-branch
+	
+	
+	--rebase -> muda o passado.
+		Tem que preferir o rebase ao inves do merge, isso vai de projeto para projeto. O mais comum é fazer em projetos curtos e com trabalho solo.
+					
+	
+Grafo de commmits:
+	Uma estrtura de dados :TAD: que representa um commit (grafos) na sequencia (branch) apontando para o commit a seguir.
+
+	https://www.hostinger.com.br/tutoriais/wp-content/uploads/sites/12/2017/05/git-tutorials-03-br.webp
+
+	O ideal para o nosso caso é:
+		**MAIN | <DEVELOP> <HOTFIX> | DEVs** 
+		-Separar cada linha do tempo, branch, para cada FIX|FEATURE|DOCS
+			Para os nomes de branch o ideal é: 'FEATure-tataManeiro'.
+		-Cada um com seu user global, com acesso de colaborador.
+		-Clean Code, ou pelo menos algo parecido com isso 
+			possível reunião sobre C.C? comentários,documentação,nomes...
+		-Conventional commits.
+		-Teste canário (?)
+		
+		
+
