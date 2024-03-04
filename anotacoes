@@ -1,99 +1,105 @@
-ANOTACOES GERAIS:
+General Notes:
 
-**Sempre PULL**
+**Always PULL**
 
-	--git config (--global) user.name "Tatá incrível"
-	--git config (--global) user.mail "tataomaisincrivel@yahoo.com"
-	--git clone ...
-	--git branch feature-implementacaoSHop
-	--git remote add feature-implementacaoShop "urlmaingit"
-	--git push -u origin new-branch
-	--git pull
-	Problemas Linux/Ubuntu
-	--Pode ocorrer a necessidade de uma key para a sua conta do git, me chama.
-	
-COMO IR PARA OUTRO COMMIT:
-	checkout.
-	git checkout 'idCommit'	
-	podemos usar para branch tbm.
-	
+Basic time line of git
+- git init
+- git config (--global) user.name "otaviopl"
+- git config (--global) user.mail "tataomaisincrivel@yahoo.com"
+- git clone ...
+- git branch feature-implementacaoSHop
+- git remote add feature-implementacaoShop "urlmaingit"
+- git push -u origin new-branch
+- git pull
+- Linux/Ubuntu Issues
+	- You might need a key for your git account, consult the documentation of GitHub.
+
+HOW TO GO TO ANOTHER COMMIT:
+
+    checkout.
+    git checkout 'idCommit'
+    we can also use it for the branch.
+
 STASH:
-	git stash save "mensagem"
-	git stash list
-	git stash pop
-	
-**Precisa deixar explícito para o git o que subir, de preferencia nao subir arquivos com informacoes confidenciais.**
+- Stash is the midle part of your time line in git. #DO CHANGES HERE.
+    git stash save "message"
+    git stash list
+    git stash pop
 
-COMO?
-	git ignore: untracked(ngm ta monitorando)/tracked(monitorando)/ignored(aquivos a toa, PDF(??))
-	
-	tracked | untracked | ignored
-	
-	touch .gitignore && echo nomes dos arquiso >> .gitignore
-	Padrao de globbing
-	/ FORMA FACIL DE COLOCAR ARQUIVOS NAO NECESSARIOS:
-		*.log /
-		
+Explicitly tell git what to upload, preferably not to upload files with confidential information.
+HOW?
+
+    git ignore: untracked(nobody is watching)/tracked(watching)/ignored(useless files, PDF(??))
+
+    touch .gitignore && echo file names >> .gitignore
+    Pattern globbing
+    / EASY WAY TO PUT UNNECESSARY FILES:
+    *.log /
+
 MERGE:
-	-Quanto menor a arvore, melhor o projeto.
-	-Sempre onde recebe.
-	+Conflitos: Normal, cabe o desenvolvedor saber o que é melhor. Apaga na mao e da commit instantaneamente comuniacando geral.
-	Uma possivel solucao, é Integracao conitnua
-		'EXTREME PROGRAMMING (XP) --FACEBOOK--'
-		https://www.alura.com.br/artigos/assets/git-hub/modelo-distribuido.png
 
-		trunk-based com commits pequenos direto na main e se der merda rollback.
-	--git merge :Junta tudo ai, 
-	
-		git checkout ATUALbranch
-		git merge new-branch
-		
-		pode dar conflito!:
-			
-			Cabe ao desenvolvendor escolher a melhor forma de prosseguir.
-	--PRs
-		Após fazer oq precisa, jogar pra develop e testar. Estando tudo certo pede PR pra main.
-		--Vai pro gitHub e pede integração com a branch em produçao. Os colaboradores têm permissão para liberar.
-		
-		https://www.alura.com.br/artigos/assets/git-hub/pull-request.png
+vbnet
 
-	Apos o PR, deletar o branch remoto é bom:
-		git push origin --delete /nome-branch
-	  	git branch -d new-branch
-	
-	
-	--rebase -> muda o passado.
-		Tem que preferir o rebase ao inves do merge, isso vai de projeto para projeto. O mais comum é fazer em projetos curtos e com trabalho solo.
-					
-	
-Grafo de commmits:
-	Uma estrtura de dados :TAD: que representa um commit (grafos) na sequencia (branch) apontando para o commit a seguir.
+- The smaller the tree, the better the project.
+- Always where it receives.
++ Conflicts: Normal, it's up to the developer to know what's best. Delete it manually and commit instantly communicating with everyone.
+A possible solution is Continuous Integration
+	'EXTREME PROGRAMMING (XP) --FACEBOOK--'
+	https://www.alura.com.br/artigos/assets/git-hub/modelo-distribuido.png
 
-	https://www.hostinger.com.br/tutoriais/wp-content/uploads/sites/12/2017/05/git-tutorials-03-br.webp
+	trunk-based with small commits directly in the main and if it goes wrong rollback.
+- git merge: Joins everything there,
 
-	O ideal para o nosso caso é:
-		**MAIN | <DEVELOP> <HOTFIX> | DEVs** 
-		-Separar cada linha do tempo:
-			Para os nomes de branch o ideal é: 'FEAT-tataManeiro'.
-		-Cada um com seu user global, com acesso de colaborador.
-		-Clean Code, ou pelo menos algo parecido com isso 
-			possível reunião sobre C.C? comentários,documentação,nomes...
-		-Conventional commits.
-			Exste um padrão para mensagens de commits:
-			-Nomes: 
-				TEST: alteração ou criação de codigo de testes.
-				Revert: reversão de um commit anterior.
-				PERFormance: melhoras na perfomance do programa.
-				Build: alterar processo de build; não vamos usar.
-				DOCS: mudanã na documentação.
-				FIX: correção de erros.
-				FEATure: indica o desenvolvimento de uma funcao nova, servico, endpoint...
-				Refactor: ordem dos fatores nao altera o produto. 
-				Style: mudar identação...
-				chore: mudanças no desenvolvimento. GITIGNORE 
-			https://miro.medium.com/v2/resize:fit:720/format:webp/1*IZPTYtwxI-UgULgOjf8GKQ.png
-			
-		-Teste canário||possivel solucao para testarmos a shopify.
+	git checkout CURRENTbranch
+	git merge new-branch
+	
+	it can give conflict!:
 		
+		It is up to the developer to choose the best way to proceed.
+- PRs
+	After doing what is needed, throw to develop and test. When everything is fine, ask for PR to main.
+	- Go to gitHub and request integration with the production branch. Collaborators have permission to release.
+	
+	https://www.alura.com.br/artigos/assets/git-hub/pull-request.png
+
+After the PR, deleting the remote branch is good:
+	git push origin --delete /nome-branch
+  	git branch -d new-branch
+
+
+- rebase -> changes the past.
+	You have to prefer rebase instead of merge, this goes from project to project. The most common is to do it in short projects and solo work.
+				
+
+Commits graph:
+A data structure: TAD: representing a commit (graphs) in sequence (branch) pointing to the following commit.
+
+vbnet
+
+https://www.hostinger.com.br/tutoriais/wp-content/uploads/sites/12/2017/05/git-tutorials-03-br.webp
+
+The ideal for our case is:
+	**MAIN | <DEVELOP> <HOTFIX> | DEVs** 
+	- Separate each timeline:
+		For branch names the ideal is: 'FEAT-tataManeiro'.
+	- Each one with his global user, with collaborator access.
+	- Clean Code, or at least something like it
+		possible meeting about C.C? comments, documentation, names...
+	- Conventional commits.
+		There is a standard for commit messages:
+		- Names: 
+			TEST: change or creation of test code.
+			Revert: Reversion of a previous commit.
+			PERFormance: program performance improvements.
+			Build: change build process; we won't use.
+			DOCS: change in documentation.
+			FIX: bug fixes.
+			FEATure: indicates the development of a new function, service, endpoint...
+			Refactor: the order of factors does not alter the product. 
+			Style: change indentation...
+			chore: changes in development. GITIGNORE 
+		https://miro.medium.com/v2/resize:fit:720/format:webp/1*IZPTYtwxI-UgULgOjf8GKQ.png
 		
+	- Canary test||possible solution for testing the shopify.
+
 
