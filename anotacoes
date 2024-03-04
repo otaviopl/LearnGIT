@@ -1,21 +1,28 @@
 ANOTACOES GERAIS:
 
-	**Sempre PULL**
+**Sempre PULL**
 
 	--git config (--global) user.name "Tatá incrível"
 	--git config (--global) user.mail "tataomaisincrivel@yahoo.com"
+	--git clone ...
+	--git branch feature-implementacaoSHop
+	--git remote add feature-implementacaoShop "urlmaingit"
 	--git push -u origin new-branch
 	--git pull
+	Problemas Linux/Ubuntu
+	--Pode ocorrer a necessidade de uma key para a sua conta do git, me chama.
 	
 COMO IR PARA OUTRO COMMIT:
 	checkout.
-	git checkou 'idCommit'	
+	git checkout 'idCommit'	
+	podemos usar para branch tbm.
+	
 STASH:
 	git stash save "mensagem"
 	git stash list
 	git stash pop
 	
-**Precisa deixar explicito para o git o que subir, de preferencia nao subir arquivos com informacoes confidenciais.**
+**Precisa deixar explícito para o git o que subir, de preferencia nao subir arquivos com informacoes confidenciais.**
 
 COMO?
 	git ignore: untracked(ngm ta monitorando)/tracked(monitorando)/ignored(aquivos a toa, PDF(??))
@@ -47,6 +54,7 @@ MERGE:
 	--PRs
 		Após fazer oq precisa, jogar pra develop e testar. Estando tudo certo pede PR pra main.
 		--Vai pro gitHub e pede integração com a branch em produçao. Os colaboradores têm permissão para liberar.
+		
 		https://www.alura.com.br/artigos/assets/git-hub/pull-request.png
 
 	Apos o PR, deletar o branch remoto é bom:
@@ -65,13 +73,27 @@ Grafo de commmits:
 
 	O ideal para o nosso caso é:
 		**MAIN | <DEVELOP> <HOTFIX> | DEVs** 
-		-Separar cada linha do tempo, branch, para cada FIX|FEATURE|DOCS
-			Para os nomes de branch o ideal é: 'FEATure-tataManeiro'.
+		-Separar cada linha do tempo:
+			Para os nomes de branch o ideal é: 'FEAT-tataManeiro'.
 		-Cada um com seu user global, com acesso de colaborador.
 		-Clean Code, ou pelo menos algo parecido com isso 
 			possível reunião sobre C.C? comentários,documentação,nomes...
 		-Conventional commits.
-		-Teste canário (?)
+			Exste um padrão para mensagens de commits:
+			-Nomes: 
+				TEST: alteração ou criação de codigo de testes.
+				Revert: reversão de um commit anterior.
+				PERFormance: melhoras na perfomance do programa.
+				Build: alterar processo de build; não vamos usar.
+				DOCS: mudanã na documentação.
+				FIX: correção de erros.
+				FEATure: indica o desenvolvimento de uma funcao nova, servico, endpoint...
+				Refactor: ordem dos fatores nao altera o produto. 
+				Style: mudar identação...
+				chore: mudanças no desenvolvimento. GITIGNORE 
+			https://miro.medium.com/v2/resize:fit:720/format:webp/1*IZPTYtwxI-UgULgOjf8GKQ.png
+			
+		-Teste canário||possivel solucao para testarmos a shopify.
 		
 		
 
