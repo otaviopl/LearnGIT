@@ -154,6 +154,13 @@ git add -u 		X 	X 	Coloca no Stage apenas arquivos modificados e removidos
 
 31. 
 	O arquivo .gitignore serve para mostrar à ferramenta GIT o que não deve ir ao repositorio remoto. Ou seja, o que deve ser ignorado.	
+	Este arquivo é importante para que nenhuma chave de segurança ,ou qualquer arquivo que não possa subir, fique exposto no sistema de armazenamento. 
+	É importante lembrar que mesmo qe um repositorio remoto seja privado, ele ainda pode ser acessado.
+
+32.
+	REBASE:
+		rebase muda o historico de commits, para que as mudanças sejam integradas de uma forma mais linear e organizada.
+		
 
 	
 		
