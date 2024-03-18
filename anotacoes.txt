@@ -113,6 +113,47 @@ git add -u 		X 	X 	Coloca no Stage apenas arquivos modificados e removidos
 	- Desenvolva ao mesmo tempo da equipe inteira, de maneira isolada daquela que está em prod.
 	- As branches podem ser dividas em ativiades: FIX|FEAT|...
 22.
+	git branch vai apenas mostrar quais sao as branches existentes no repositorio local.
+	git branch issue-22 vai criar uma branch com este nome, caso a branch ja exista o git nao retorna nada.
+23.
+	git checkout é ir para:
+	
+	Um commit: git checkout {HASHcommit}
+	Uma branch: git checkout nome-da-branch
+	Um arquivo: git checkout nome-arquivo //Neste caso o arquivo nao pode estar na stage area 
+	
+24.
+	O merge de duas branches acontecesse para integracao de duas modificacoes especificas. Por exemplo:
+	feature-IntegrateGoogleApi
+	fix-ErrorAtAuthentication
+	Para dar merge entre essas duas na main, voce deve dar checkout até a main (quem vai receber o mege) e exe
+	git merge feature-IntegrateGoogleApi
+	ou git merge feature-IntegrateGoogleApi main.
+	Com esse comando o GIT irá tentar mesclar as alterações feitas na branch feat para a main. Caso as alterações sejam indepe o merge ocorre sem problema
+	Caso haja alguma mesclagem sem ser indepe, vai haver conflito.
+
+25.
+	O merge hell acontecesse quando varios DEVs estão trablahando em multiplos branches, e assim quando vão mesclar tudo ao final, acontecesse o merge hell.
+	Varios conflitos precisam ser resolvidos.
+	A solução mais plausivel para que isso seja evitado, é o extreme programming. O que propoe uma integracao contiua sendo assim os DEVs integram os codigos no dia a dia.
+26.
+	Integração contínua:
+		Processo que consiste em mesclar, merge, as alterações várias vezes ao dia. Evitando assim o merge hell.
+27. 
+	A variavel HEAD é uma variável adicional. Ela aponta para a branch atual/commit atual, assim, quando voce muda de branch a variavel HEAD começa a apontar para outra branch.
+	Quando voce se encontra em DETACHED HEAD, a variavel nao esta apontando para nenhuma branch. Entao qualquer alteracao que é feita na DETACHED HEAD, nao ficara salva na branch/projeto. 
+	Neste caso, se o DEV quiser salvar a alteração feita, é preciso ou STASH ou criar uma branch a partir do ponto em que voce se encontra.
+
+28. 
+	Quando temos um merge, precisamos achar o antecessor comum. Após isso, é só 'ligar' o commit novo de merge ao antigo commit do issue. Deleta a branch desenvolvida.
+
+29|30.
+	GIT STASH: salva as alteracoes feita, 'esconde'. dessa forma voce pode fingir que aquelas alteracoes nao existem.
+	GIT STASH POP: Pega o ultimo stash feito e joga de volta na HEAD em que voce esta.
+	GIT STASH APPLY: Devolv na HEAD, mas mantem uma copia escondida.
+
+31. 
+	O arquivo .gitignore serve para mostrar à ferramenta GIT o que não deve ir ao repositorio remoto. Ou seja, o que deve ser ignorado.	
 
 	
 		
