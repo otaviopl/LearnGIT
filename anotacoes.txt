@@ -1,0 +1,118 @@
+Gestão de configuração de software.
+conjunto de atividades projetadas para controlar as mudancas por meio da identificacao dos produtoes de trabalho que serao alterados e seus relacionamentos.
+
+1. Controle de versão é a pratica de usar programas e ferramentas para controlar e versionar alteracoes de um codigo ao longo do tempo. As suas vantagens são, entre outras: 
+
+	Facilita o trabalho em equipe.
+	Organização e sintonia no fluxo de trabalho.
+	*Armazenamento, menos coisa no PC.
+	Manter um historico
+
+2. Existem dois tipos de controle de versao:
+	Centraliado Cliente-Servidor:
+
+	O que é?
+		temos um servidor central que contem todos os arquivos versionados e o cliente pode resgatar ou gravar todo historico de versao.
+
+	Problemas?
+		Todas as versões ficavam centralizada em uma unica maquina, ou seja, grande dependencia.
+		
+	Distribuido Peer-To-Peer:
+	 O que é?
+	 	Cada desenvolvedor tem a sua cpida de todas as versoes dos arquivos, fazendo com que o trbalo fique independente do servidor e o trabalo continue mesmo se o servidor ficar off. 
+	 	Todos trabalham simultaneamente indenpendente.
+ 
+3. 
+	A principal difreneça entre o GIT e o Github é basicamente total. 
+	O git é uma ferramenta,open source, para o controle de versão. 
+	Já o Github é um sistema de hospedagem, basicamente uma rede social.
+
+4. 
+	GIT INIT: Cria um repositorio vazio para ser preenchido por nós.
+	GIT CLONE: Cria um repositorio vazio e preenche conforme o repositorio central ou remoto.
+5.
+**Separado em 3 áreas:**
+ 	Diretório de trabalho: Voce editando o seu codigo em sua maquina.
+ 	Stage Area: Onde as modifiacoes sao preparas para serem incluidas no proximo commmit ou não, serve como um meio de reviao antes e confirmar o commit. (GIT ADD) 
+ 	Repositorio Local: BD local. Totalmente controlado pela ferramente. (GIT COMMIT)
+ 	Repositorio Central/Remoto: Repostorio remoto ou central, tambem totalmente com o git como responsavel. (GIT PUSH) (GIT FETCH)
+	
+6. A pasta .git é inicializada com o comando git init. O seu conteudo é:
+	HEAD. aponta para o commt e branch atual.
+	refs: historico de commits e branches
+	objects: aramazena todos os objetos git, conteudo de arquivos, arvores e commits.
+	config: contem as configuracoes do repostiroio, nome do repositorio...
+	hooks: script de hooks, executados apos um push, por exemplo.
+	index: staging area
+		
+7. Depende do que se deseja fazer:
+	principais comandos:
+	GIT STASH SAVE "mensagem de salvamento"
+	git stash 
+	git stash pop //retira o ultimo stash e volta no diretorio
+	git stash pop stash@{id do stash}
+	git stash apply //aplica o ultimo stash no seu diretorio de trabalho, mas mantem ele na pilha de stashes
+	git stash apply stash@{id do stash}
+8. 
+	git stash pop //retira o ultimo stash e volta no diretorio
+	git stash pop stash@{id do stash}
+	git stash apply //aplica o ultimo stash no seu diretorio de trabalho, mas mantem ele na pilha de stashes
+	git stash apply stash@{id do stash}
+9. 
+	Os comandos vão até o arquivo file.txt ou criam se nao houver. Escreve 'new content' dentro do arquivo file.txt
+	No caso o git commit, vai dar erro. o novo arquivo não foi para o index, portanto nao esta sendo rastreado pelo git. Dessa forma o git vai dar pau.
+	
+10. 
+Para entender melhor podemos separar assim:
+
+Comando 	Novos 	Modificados 	Removidos 	Explicação
+
+git add --all 	X 	X 	X 	Coloca todos arquivos (novos, modificados e removidos) no index/stage
+git add . 	X 	X 		Coloca no Stage apenas arquivos novos e modificados. Aqueles neste diretorio e seus subs.
+git add -u 		X 	X 	Coloca no Stage apenas arquivos modificados e removidos
+
+11. 
+	TRACKED: rastreados, signfica que o git tem conhecimento sobr o arquivo. ja foram ou estao no index.
+	UNTRACKED: nao rastreados, talvez novos arquivos e nao foram adicionados
+	STAGED: sao arquivos que ja foram adicionados ao index, GIT ADD, vao ser incluidos no procimos commit.
+	UNSTAGED: arquivos nao preparados, ainda nao foram para o index. nao vao ser inclusos no proximo commit.
+12. 
+	se um arquivo da stage area ou repoistorio local foi modificado, ou seja, ela ja era trackeado mas agora sofreu modificacao. entao tem que ir dnv para a stage area, git add
+13. 
+	
+	git status: Mostra como esta a sua area de trabalho e relacao com o stage.
+	Mostrando a braanch em que esta, o que pode ser commitado e aquilo que o git nao esta rastreando.
+	git log: mostra o historico de commits. cada commit tem seu autor, o id, sua data e sua mensagem.
+14. 
+	O codio hash é um id para um commit especifico. Serve como identificacao, e podemos usar para checkout, por exemplo:
+		git checkout '7primeirosdigitoshash'
+15. 
+	GIT DIFF: utlizado quando precisamos saber as modificacoes do arquivo que ainda nao foram para a stage area. HORRIVEL
+16. 
+	GIT PUSH: empurra (publica) os arquivos do repositorio local para o repositorio remoto/central. 
+	Os arquivos que vaõ para o push, são aqueles que ja foram commitados. ou seja, trackeados atualemente com um ID.
+17.
+	GIT PUSH   -u   origin main
+	empura    up para origin main
+	comando: push
+	-u: ligacao entre branch loca e o remoto. colocado apenas na primeira fez
+18. 	
+	O comando git pull faz o fetch + merge. Consiste em atualizar os arquivos do diretorio local com as informacoes dos commits mais recentes.
+	O comando git fetch coipa os commits mais recentes do repoistorio remoto para o repostorio local.
+	
+19.
+	a) O comando irá falhar pela falta de um pull para atualizar com as alteracoes da dev B. Sendo assim, iria ocorrer um erro do tipo. DÊ PULL ANTES.
+	b) Caso a desenvolvedora A exe o pull antes, ela conseguiria executaro passo 6 normalmente.
+20.
+	Caso acontecessa um conflito, cabe ao DEV saber o que é melhor deixar como ultima atualizacao. 
+	Sendo assim, para evitar que algo assim aconteça, o correto seria a comunicação entre os desenvolvedores, commits pequenos (atomical commits) e pull com frequência.
+	'Acordar, escovar o dente e dar pull'.
+
+21.
+	Branches são ramificações. O principal objetivo de usar branches são:
+	- Desenvolva ao mesmo tempo da equipe inteira, de maneira isolada daquela que está em prod.
+	- As branches podem ser dividas em ativiades: FIX|FEAT|...
+22.
+
+	
+		
