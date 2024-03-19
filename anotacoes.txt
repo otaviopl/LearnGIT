@@ -1,12 +1,18 @@
 Gestão de configuração de software.
 conjunto de atividades projetadas para controlar as mudancas por meio da identificacao dos produtoes de trabalho que serao alterados e seus relacionamentos.
 
+*Defina com suas palavras o que são sistemas de controle de versão e aponte duas vantagens
+de sua adoção no desenvolvimento de software*
+
 1. Controle de versão é a pratica de usar programas e ferramentas para controlar e versionar alteracoes de um codigo ao longo do tempo. As suas vantagens são, entre outras: 
 
 	Facilita o trabalho em equipe.
 	Organização e sintonia no fluxo de trabalho.
 	*Armazenamento, menos coisa no PC.
 	Manter um historico
+
+**Quais são os tipos de sistemas de controle de versão? Aponte as principais vantagens e
+desvantagens de cada um dos tipos.**
 
 2. Existem dois tipos de controle de versao:
 	Centraliado Cliente-Servidor:
@@ -22,6 +28,7 @@ conjunto de atividades projetadas para controlar as mudancas por meio da identif
 	 	Cada desenvolvedor tem a sua cpida de todas as versoes dos arquivos, fazendo com que o trbalo fique independente do servidor e o trabalo continue mesmo se o servidor ficar off. 
 	 	Todos trabalham simultaneamente indenpendente.
  
+**Descreva qual a principal diferença entre Git e GitHub**
 3. 
 	A principal difreneça entre o GIT e o Github é basicamente total. 
 	O git é uma ferramenta,open source, para o controle de versão. 
@@ -166,7 +173,44 @@ git add -u 		X 	X 	Coloca no Stage apenas arquivos modificados e removidos
 		no papel
 
 33.
-	O rebase 'muda o passado' da branch, com isso, 	
+	O rebase 'muda o passado' da branch, com isso, 	a branch que ira rceber o rebase vai começar a apontar para todos os commits que a nova branch tem.
+	a-b-c-d-1-2-3-4
+	onde os numeros sao da nova branch.
 
+34.
+	Pull request é quando há uma nova alteração (branch) do codigo fonte e ocorre a solicitação para incorpora-las. 
+	As novas alterações recebem uma revisão do proprietário e após isso uma resposta da possível integração. 
+
+35.
+	O comando git squash é comprimir todos os commits de uma branch em um só. 
+	Isso faz com que a linha da branch seja mais limpa e linear, mas, perde todos os detalhes únicos de cada commit comprimido.
+36.
+	Fork é similar ao git clone, mas, ao invés de fazer um copia no seu repositorio local, faz uma copia independente no seu github ou qualquer outra 'rede' que estiver usando para hospedagem.
+
+37.
+	O fork é util quando o desenvolvedor não faz parte da equipe e quer colaborar com um projeto open source. 
+	Assim, ele pode fazer um copia do repostitorio para a sua conta da rede de hospedagem que esta sendo usada, fazer as alterações que quiser e mandar um PR para o proprietário do rep. original.
+	Exemplo:
 	
+		-DEV faz o fork do repositorio desejado
+		-cria a pasta que quer colocar o repositorio local em seu PC.
+		-git clone 'httplink'
+		-git checkout -b BUGFIX-blabla
+		-faz as alterações que quer  
+		-git add .
+		-git commit -m 'FEAT: now i can eat more meat'
+		-git remote add origin 'linkHttp'
+		-git push -u origin main
+		-continua as alterações 
+		-git add . 
+		-git commit -m 'FIX: fix bug at bla bla bla'
+		-git push
+		-abre PR no rep original.
+38.
+	Issues são como comentários no repositório original indicando erros ou bugs que precisam ser resolvidos. Alem disso é possível haver discussoes sobre, no issue aberto.
+	Cada issue possui um ID, portanto quando resolver um issue por meio de um commit, é possível fechar o issue por meio da mensagem do commit:
+		git commit -m "bug: solve the card problem - close #2"
+		
+	
+
 		
