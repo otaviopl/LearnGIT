@@ -1,9 +1,8 @@
 Gestão de configuração de software.
 conjunto de atividades projetadas para controlar as mudancas por meio da identificacao dos produtoes de trabalho que serao alterados e seus relacionamentos.
 
-*Defina com suas palavras o que são sistemas de controle de versão e aponte duas vantagens
-de sua adoção no desenvolvimento de software*
-
+**Defina com suas palavras o que são sistemas de controle de versão e aponte duas vantagens de sua adoção no desenvolvimento de software**
+	
 1. Controle de versão é a pratica de usar programas e ferramentas para controlar e versionar alteracoes de um codigo ao longo do tempo. As suas vantagens são, entre outras: 
 
 	Facilita o trabalho em equipe.
@@ -11,8 +10,7 @@ de sua adoção no desenvolvimento de software*
 	*Armazenamento, menos coisa no PC.
 	Manter um historico
 
-**Quais são os tipos de sistemas de controle de versão? Aponte as principais vantagens e
-desvantagens de cada um dos tipos.**
+**Quais são os tipos de sistemas de controle de versão? Aponte as principais vantagens e desvantagens de cada um dos tipos.**
 
 2. Existem dois tipos de controle de versao:
 	Centraliado Cliente-Servidor:
@@ -34,16 +32,20 @@ desvantagens de cada um dos tipos.**
 	O git é uma ferramenta,open source, para o controle de versão. 
 	Já o Github é um sistema de hospedagem, basicamente uma rede social.
 
+**Descreva para que servem e quais são as principais diferenças entre os comandos init e clone**
 4. 
 	GIT INIT: Cria um repositorio vazio para ser preenchido por nós.
 	GIT CLONE: Cria um repositorio vazio e preenche conforme o repositorio central ou remoto.
+
+**Quais são as principais áreas envolvidas no processo de versionamento com Git? Quais dessas áreas são manipuladas pelo usuário e quais são de controle exclusivo do Git?**
 5.
-**Separado em 3 áreas:**
+Separado em 3 áreas:
  	Diretório de trabalho: Voce editando o seu codigo em sua maquina.
  	Stage Area: Onde as modifiacoes sao preparas para serem incluidas no proximo commmit ou não, serve como um meio de reviao antes e confirmar o commit. (GIT ADD) 
  	Repositorio Local: BD local. Totalmente controlado pela ferramente. (GIT COMMIT)
  	Repositorio Central/Remoto: Repostorio remoto ou central, tambem totalmente com o git como responsavel. (GIT PUSH) (GIT FETCH)
-	
+
+**O que o Git armazena na pasta .git do diretório sendo versionado?**
 6. A pasta .git é inicializada com o comando git init. O seu conteudo é:
 	HEAD. aponta para o commt e branch atual.
 	refs: historico de commits e branches
@@ -51,7 +53,8 @@ desvantagens de cada um dos tipos.**
 	config: contem as configuracoes do repostiroio, nome do repositorio...
 	hooks: script de hooks, executados apos um push, por exemplo.
 	index: staging area
-		
+
+**Qual comando deve ser utilizado para se movimentar arquivos entre o diretório de trabalho e a stage area?**	
 7. Depende do que se deseja fazer:
 	principais comandos:
 	GIT STASH SAVE "mensagem de salvamento"
@@ -60,15 +63,20 @@ desvantagens de cada um dos tipos.**
 	git stash pop stash@{id do stash}
 	git stash apply //aplica o ultimo stash no seu diretorio de trabalho, mas mantem ele na pilha de stashes
 	git stash apply stash@{id do stash}
+	
+** Qual comando deve ser utilizado para se movimentar arquivos da stage area para o repositório local?**
 8. 
 	git stash pop //retira o ultimo stash e volta no diretorio
 	git stash pop stash@{id do stash}
 	git stash apply //aplica o ultimo stash no seu diretorio de trabalho, mas mantem ele na pilha de stashes
 	git stash apply stash@{id do stash}
+
+**Após se executar os comandos a seguir, o que acontecerá com o versionamento do arquivo file.txt?**
 9. 
 	Os comandos vão até o arquivo file.txt ou criam se nao houver. Escreve 'new content' dentro do arquivo file.txt
 	No caso o git commit, vai dar erro. o novo arquivo não foi para o index, portanto nao esta sendo rastreado pelo git. Dessa forma o git vai dar pau.
 	
+**Qual a diferença entre os comandos “git add .” e “git add –all”?**	
 10. 
 Para entender melhor podemos separar assim:
 
