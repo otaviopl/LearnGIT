@@ -131,6 +131,7 @@ git add -u 		X 	X 	Coloca no Stage apenas arquivos modificados e removidos
 	ou git merge feature-IntegrateGoogleApi main.
 	Com esse comando o GIT irá tentar mesclar as alterações feitas na branch feat para a main. Caso as alterações sejam indepe o merge ocorre sem problema
 	Caso haja alguma mesclagem sem ser indepe, vai haver conflito.
+	No exemplo com grafos, a main irá receber um novo commit que sera referencia para o ultimo commit da feat e para o ultimo commit da main.
 
 25.
 	O merge hell acontecesse quando varios DEVs estão trablahando em multiplos branches, e assim quando vão mesclar tudo ao final, acontecesse o merge hell.
@@ -160,7 +161,12 @@ git add -u 		X 	X 	Coloca no Stage apenas arquivos modificados e removidos
 32.
 	REBASE:
 		rebase muda o historico de commits, para que as mudanças sejam integradas de uma forma mais linear e organizada.
-		
+		Importante usar apenas em situações especificas e safes.
+	Exemplo:
+		no papel
+
+33.
+	O rebase 'muda o passado' da branch, com isso, 	
 
 	
 		
